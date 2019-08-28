@@ -1,0 +1,12 @@
+{application, sonnen,
+ [
+  {description, ""},
+  {vsn, git},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib,
+		  exo
+                 ]},
+  {env, []}
+ ]}.
