@@ -1,12 +1,9 @@
 {application, sonnen,
  [
-  {description, ""},
+  {description, "sonnen battery status using rest api"},
   {vsn, git},
+  {modules, ["@@MODULES@@"]},
   {registered, []},
-  {applications, [
-                  kernel,
-                  stdlib,
-		  exo
-                 ]},
+  {applications, [kernel,stdlib]},
   {env, []}
  ]}.
