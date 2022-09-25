@@ -7,13 +7,14 @@
 
 -module(sonnen).
 
--export([i/0, i/2]).
--export([read_status/0, read_status/1]).
+-export([i/0, i/1, i/2]).
+-export([read_status/0, read_status/1, read_status/2]).
 
 -define(DEFAULT_IP, "192.168.2.91").
 -define(DEFAULT_PORT, "8080").
 
 i() -> i(?DEFAULT_IP, ?DEFAULT_PORT).
+i(IP) -> i(IP,?DEFAULT_PORT).
 i(IP,Port) ->
     Status = read_status(IP,Port),
     Consumption = proplists:get_value(consumption,Status),
@@ -38,10 +39,8 @@ w(W) ->
 
 read_status() ->
     read_status(?DEFAULT_IP).
-
 read_status(IP) ->
     read_status(IP, ?DEFAULT_PORT).
-
 read_status(IP,Port) ->
     (catch error_logger:tty(false)),
     application:start(inets),
